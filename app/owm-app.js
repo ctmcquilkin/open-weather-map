@@ -6,7 +6,7 @@ angular.module('OWMApp', ['ngRoute'])
       controller: 'HomeCtrl'
     }).when('/cities/:city', {
       templateUrl: 'city.html',
-      controller: 'CityCtrl'
+      controller: 'CityCtrl',
       resolve: {
         city: function(owmCities, $route, $location) {
           var city = $route.current.params.city;
@@ -16,6 +16,7 @@ angular.module('OWMApp', ['ngRoute'])
           }
           return city;
         }
+      }
     }).when('/error', {
       template: '<p>Error - Page Not Found</p>'
     });
